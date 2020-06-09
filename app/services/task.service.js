@@ -55,10 +55,26 @@ export class TaskService {
             }
 
             if (data.priority) {
-                if (data.label instanceof Array) {
+                if (data.priority instanceof Array) {
                     conditions.priority = { $in: data.priority };
                 } else {
                     conditions.priority = data.priority;
+                }
+            }
+
+            if (data.type) {
+                if (data.type instanceof Array) {
+                    conditions.type = { $in: data.type };
+                } else {
+                    conditions.type = data.type;
+                }
+            }
+
+            if (data.label) {
+                if (data.label instanceof Array) {
+                    conditions.label = { $in: data.label };
+                } else {
+                    conditions.label = data.label;
                 }
             }
 
