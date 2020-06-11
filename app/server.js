@@ -50,7 +50,7 @@ const init = async () => {
         }
     };
 
-    await mongoose.connect(`${process.env.MONGODB_HOST}${process.env.MONGODB_NAME}`, {
+    await mongoose.connect(`${process.env.MONGODB_HOST}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
