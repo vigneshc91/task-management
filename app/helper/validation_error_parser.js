@@ -6,9 +6,9 @@ import Httpstatus from 'http-status-codes'
  * @param {object} obj
  */
 export function parse(error) {
-    error.output.statusCode = Httpstatus.UNPROCESSABLE_ENTITY
-    error.output.payload = { errors: getErrorObject(error) }
-    return error
+    error.output.statusCode = Httpstatus.UNPROCESSABLE_ENTITY;
+    error.output.payload = { errors: getErrorObject(error) };
+    return error;
 }
 
 /**
@@ -16,13 +16,13 @@ export function parse(error) {
  * @param {object} error
  */
 function getErrorObject(error) {
-    let errorObject = {}
+    let errorObject = {};
     if (error.details && error.details.length) {
         error.details.forEach((element) => {
             if (!_.has(errorObject, element.path)) {
-                _.set(errorObject, element.path, element.message)
+                _.set(errorObject, element.path, element.message);
             }
         })
     }
-    return errorObject
+    return errorObject;
 }
