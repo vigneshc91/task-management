@@ -1,4 +1,5 @@
 import { UserController } from '../controllers/user.controller';
+import { parse } from '../helper/validation_error_parser';
 import createUserValidator from '../validators/create_user.validator';
 import loginUserValidator from '../validators/login_user.validator';
 import updateUserValidator from '../validators/update_user.validator';
@@ -16,7 +17,7 @@ export function userRoute(server) {
             validate: {
                 payload: createUserValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },
@@ -34,7 +35,7 @@ export function userRoute(server) {
             validate: {
                 payload: loginUserValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },
@@ -56,7 +57,7 @@ export function userRoute(server) {
             validate: {
                 payload: updateUserValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },

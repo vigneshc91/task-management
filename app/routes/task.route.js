@@ -1,4 +1,5 @@
 import { TaskController } from '../controllers/task.controller';
+import { parse } from '../helper/validation_error_parser';
 import createTaskValidator from '../validators/create_task.validator';
 import updateTaskValidator from '../validators/update_task.validator';
 import listTaskValidator from '../validators/list_task.validator';
@@ -22,7 +23,7 @@ export function taskRoute(server) {
             validate: {
                 payload: createTaskValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },
@@ -47,7 +48,7 @@ export function taskRoute(server) {
                 }),
                 payload: updateTaskValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },
@@ -69,7 +70,7 @@ export function taskRoute(server) {
             validate: {
                 query: listTaskValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },
@@ -136,7 +137,7 @@ export function taskRoute(server) {
                 }),
                 payload: changeTaskStatusValidator,
                 failAction: (request, response, err) => {
-                    throw err;
+                    throw parse(err);
                 }
             }
         },

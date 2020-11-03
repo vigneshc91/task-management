@@ -19,5 +19,6 @@ export default Joi.object({
     size: Joi.number().optional().allow(''),
     all: Joi.bool().optional().allow('')
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });

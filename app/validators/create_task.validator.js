@@ -9,5 +9,6 @@ export default Joi.object({
     priority: Joi.number().valid(...Object.values(Priority)).optional().allow(''),
     type: Joi.number().valid(...Object.values(Type)).optional().allow('')
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });

@@ -10,5 +10,6 @@ export default Joi.object({
     label: Joi.array().items(Joi.number().valid(...Object.values(Label))),
     status: Joi.number().valid(Status.NEW, Status.INPROGRESS, Status.COMPLETED).optional().allow('')
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });

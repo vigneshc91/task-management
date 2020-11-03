@@ -7,5 +7,6 @@ export default Joi.object({
     countryCode: Joi.string().regex(/^\d+$/).optional().min(1).max(3).allow(''),
     phoneNumber: Joi.string().regex(/^\d+$/).min(10).max(12).allow('')
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });

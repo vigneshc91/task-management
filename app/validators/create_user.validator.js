@@ -6,5 +6,6 @@ export default Joi.object({
     firstName: Joi.string().optional().allow(''),
     lastName: Joi.string().optional().allow('')
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });

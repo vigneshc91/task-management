@@ -4,5 +4,6 @@ export default Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required()
 }).options({
-    abortEarly: false
+    abortEarly: false,
+    stripUnknown: true
 });
