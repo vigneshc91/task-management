@@ -1,19 +1,19 @@
-import _ from 'lodash';
-import Httpstatus from 'http-status-codes';
+import _ from 'lodash'
+import Httpstatus from 'http-status-codes'
 
 /**
  * Parse the validation error object and modify the response
- * @param {object} obj 
+ * @param {object} obj
  */
 export function parse(error) {
-    error.output.statusCode = Httpstatus.UNPROCESSABLE_ENTITY;
-    error.output.payload = getErrorObject(error);
-    return error;
+    error.output.statusCode = Httpstatus.UNPROCESSABLE_ENTITY
+    error.output.payload = { errors: getErrorObject(error) }
+    return error
 }
 
 /**
  * Return the modified error object
- * @param {object} error 
+ * @param {object} error
  */
 function getErrorObject(error) {
     let errorObject = {}
